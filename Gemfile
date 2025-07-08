@@ -75,3 +75,5 @@ end
 gem 'prettyprint'
 
 gem 'ostruct'
+
+gem "responders"
