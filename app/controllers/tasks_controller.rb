@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     render_notice(t("successfullyCreated"))
   end
 
-  before_action :load_task!, only: %i[show update]
+  before_action :load_task!, only: %i[show update destroy]
 
   def show
     render_json({ task: @task })
@@ -21,6 +21,11 @@ class TasksController < ApplicationController
   def update
     @task.update!(task_params)
     render_notice(t("successfullyUpdated"))
+  end
+
+  def destroy
+    @task.destroy!
+    render_json
   end
 
   private
