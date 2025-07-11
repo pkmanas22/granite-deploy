@@ -28,8 +28,9 @@
 #       enabled: "ON"
 
 en:
+  successfullyCreated: "Task was successfully created"
+  successfullyUpdated: "Task was successfully updated!"
   task:
-    created: "Task was successfully created"
     not_found: "Task not found"
     slug:
       immutable: "is immutable!"
