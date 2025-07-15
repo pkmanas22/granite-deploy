@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import tasksApi from "apis/tasks";
 import { Button, Container, PageLoader } from "components/commons";
+import logger from "js-logger";
 import { useHistory, useParams } from "react-router-dom";
 
 const Show = () => {
@@ -41,16 +42,20 @@ const Show = () => {
         <div className="mt-8 flex w-full items-start justify-between gap-x-6">
           <div className="flex flex-col gap-y-2">
             <h2 className="text-3xl font-semibold">{task?.title}</h2>
+            <div className="flex items-center gap-x-6">
+              <p className="text-base text-gray-700">
+                <span className="font-semibold">Assigned to: </span>
+                {task?.assigned_user?.name}
+              </p>
+            </div>
           </div>
-          <div className="flex items-center justify-end gap-x-3">
-            <Button
-              buttonText="Edit"
-              icon="edit-line"
-              size="small"
-              style="secondary"
-              onClick={updateTask}
-            />
-          </div>
+          <Button
+            buttonText="Edit"
+            icon="edit-line"
+            size="small"
+            style="secondary"
+            onClick={updateTask}
+          />
         </div>
       </div>
     </Container>

@@ -2,8 +2,8 @@
 
 class TasksController < ApplicationController
   def index
-    tasks = Task.all
-    render status: :ok, json: { tasks: }
+    tasks = Task.all.as_json(include: { assigned_user: { only: %i[name id] } })
+    render_json({ tasks: })
   end
 
   def create
@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   before_action :load_task!, only: %i[show update destroy]
 
   def show
-    render_json({ task: @task })
+    render_json({ task: @task.as_json(include: :assigned_user) })
   end
 
   def update
@@ -31,11 +31,10 @@ class TasksController < ApplicationController
   private
 
     def load_task!
-      puts "before"
       @task = Task.find_by!(slug: params[:slug])
     end
 
     def task_params
-      params.require(:task).permit(:title)
+      params.require(:task).permit(:title, :assigned_user_id)
     end
 end
