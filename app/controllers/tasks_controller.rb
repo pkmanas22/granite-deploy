@@ -15,7 +15,6 @@ class TasksController < ApplicationController
   before_action :load_task!, only: %i[show update destroy]
 
   def show
-    puts @task
     render
   end
 
