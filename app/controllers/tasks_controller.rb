@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     task.save!
-    render_notice(t("successfullyCreated"))
+    render_notice(t("successfully_created", entity: "Task"))
   end
 
   before_action :load_task!, only: %i[show update destroy]
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update!(task_params)
-    render_notice(t("successfullyUpdated"))
+    render_notice(t("successfully_updated", entity: "Task"))
   end
 
   def destroy
