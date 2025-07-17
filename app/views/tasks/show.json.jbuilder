@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
 json.task do
-  json.extract! @task, :id, :slug, :title
+  json.extract! @task,
+    :id,
+    :slug,
+    :title
 
-  if @task.assigned_user.present?
-    json.assigned_user do
-      json.extract! @task.assigned_user, :id, :name
-    end
-  else
-    json.assigned_user nil
+  json.assigned_user do
+    json.id @task.assigned_user.id
+    json.name @task.assigned_user.name
+  end
+
+  json.task_owner do
+    json.extract! @task.task_owner,
+      :name
   end
 end
