@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_17_101103) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_17_105243) do
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_17_101103) do
     t.datetime "updated_at", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "authentication_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
