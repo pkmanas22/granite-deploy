@@ -90,3 +90,5 @@ gem "responders"
 gem "react-rails", "~> 2.7.1"
 
 gem "data_migrate"
+
+gem "simplecov", require: false, group: :test
