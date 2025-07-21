@@ -4,7 +4,6 @@ import commentsApi from "apis/comments";
 import tasksApi from "apis/tasks";
 import Comments from "components/Comments";
 import { Button, Container, PageLoader } from "components/commons";
-import logger from "js-logger";
 import { useHistory, useParams } from "react-router-dom";
 
 const Show = () => {
@@ -14,6 +13,15 @@ const Show = () => {
   const [loading, setLoading] = useState(false);
   const { slug } = useParams();
   const history = useHistory();
+
+  const destroyTask = async () => {
+    try {
+      await tasksApi.destroy({ slug: task.slug });
+      history.push("/");
+    } catch (error) {
+      logger.error(error);
+    }
+  };
 
   const updateTask = () => {
     history.push(`/tasks/${task.slug}/edit`);
@@ -74,13 +82,22 @@ const Show = () => {
               </p>
             </div>
           </div>
-          <Button
-            buttonText="Edit"
-            icon="edit-line"
-            size="small"
-            style="secondary"
-            onClick={updateTask}
-          />
+          <div className="flex items-center justify-end gap-x-3">
+            <Button
+              buttonText="Delete"
+              icon="delete-bin-5-line"
+              size="small"
+              style="secondary"
+              onClick={destroyTask}
+            />
+            <Button
+              buttonText="Edit"
+              icon="edit-line"
+              size="small"
+              style="secondary"
+              onClick={updateTask}
+            />
+          </div>
         </div>
         <Comments
           comments={task?.comments}
