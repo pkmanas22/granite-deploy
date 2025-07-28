@@ -81,12 +81,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# Added for fixing sqlite3 creation issue - run bellow command in terminal
-=begin
-  gem uninstall prettyprint
-  gem install prettyprint
-  bundle install
-=end
 gem "prettyprint"
 
 gem "ostruct"
