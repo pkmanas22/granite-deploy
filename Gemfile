@@ -100,3 +100,5 @@ gem "data_migrate"
 gem "simplecov", require: false, group: :test
 
 gem "pundit"
+
+gem "minitest-bisect"
