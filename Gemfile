@@ -81,18 +81,12 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "prettyprint"
-
-gem "ostruct"
-
-gem "responders"
-
-gem "react-rails", "~> 2.7.1"
-
 gem "data_migrate"
-
-gem "simplecov", require: false, group: :test
-
-gem "pundit"
-
 gem "minitest-bisect"
+gem "ostruct"
+gem "prettyprint"
+gem "pundit"
+gem "react-rails", "~> 2.7.1"
+gem "responders"
+gem "sidekiq", "~>7"
+gem "simplecov", require: false, group: :test

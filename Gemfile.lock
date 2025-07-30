@@ -275,6 +275,8 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    redis-client (0.25.1)
+      connection_pool
     regexp_parser (2.10.0)
     reline (0.6.1)
       io-console (~> 0.5)
@@ -311,6 +313,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.3.9)
+      base64
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -394,6 +402,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   selenium-webdriver
+  sidekiq (~> 7)
   simplecov
   sprockets-rails
   sqlite3 (~> 1.4)
