@@ -73,6 +73,9 @@ group :development do
 
   # For linting ERB files
   gem "erb_lint", require: false, git: "https://github.com/Shopify/erb-lint.git", branch: "main"
+
+  # For opening mails in development env
+  gem "letter_opener"
 end
 
 group :test do
@@ -90,3 +93,6 @@ gem "react-rails", "~> 2.7.1"
 gem "responders"
 gem "sidekiq", "~>7"
 gem "simplecov", require: false, group: :test
+
+# For periodic sidekiq jobs
+gem "sidekiq-cron"
