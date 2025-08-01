@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_01_045217) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_01_045220) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "task_id", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_01_045217) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.integer "notification_delivery_hour"
+    t.boolean "should_receive_email", default: true, null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -65,6 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_01_045217) do
 
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
+  add_foreign_key "preferences", "users"
   add_foreign_key "tasks", "users", column: "assigned_user_id"
   add_foreign_key "tasks", "users", column: "task_owner_id", on_delete: :cascade
   add_foreign_key "user_notifications", "users"
