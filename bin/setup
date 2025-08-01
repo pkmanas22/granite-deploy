@@ -26,7 +26,7 @@ FileUtils.chdir APP_ROOT do
   # end
 
   puts "\n== Executing yarn =="
-  system!("bin/yarn")
+  system!("yarn")
 
   puts "\n== Executing rake setup =="
   system! "bundle exec rake setup"
