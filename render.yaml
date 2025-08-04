@@ -2,7 +2,7 @@ services:
   - type: web
     name: granite-manas-pradhan
     runtime: ruby
-    repo: https://github.com/pkmanas22/granite
+    repo: https://github.com/pkmanas22/granite-deploy
     branch: main
     plan: free
     envVars:
